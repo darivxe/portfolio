@@ -15,7 +15,7 @@ const Hero = () => {
   const fullText = 'hello, visitor!';
   const targetName = 'darivxe';
 
-  // Typing animation (NORMAL text)
+  // Typing animation (normal text first)
   useEffect(() => {
     let currentIndex = 0;
 
@@ -36,7 +36,7 @@ const Hero = () => {
     return () => clearTimeout(startDelay);
   }, []);
 
-  // Scramble animation
+  // Scramble animation for darivxe
   useEffect(() => {
     if (!isScrambling) return;
 
@@ -62,7 +62,7 @@ const Hero = () => {
         setScrambledText(targetName);
         setScrambleComplete(true);
 
-        // 👇 switch hello to italic AFTER everything appears
+        // Turn ONLY "hello" italic after everything finishes
         setTimeout(() => setHelloItalic(true), 300);
       }
     }, 50);
@@ -82,8 +82,14 @@ const Hero = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Split text so only "hello" becomes italic
+  const helloPart = displayText.startsWith('hello')
+    ? displayText.slice(0, 5)
+    : '';
+  const restPart = displayText.slice(5);
+
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-between overflow-hidden pt-14">
+    <section className="relative flex min-h-screen flex-col items-center justify-between overflow-hidden pt-20 md:pt-14">
       {/* Noise background */}
       <div
         className="absolute inset-0 opacity-[0.05] pointer-events-none"
@@ -92,19 +98,17 @@ const Hero = () => {
         }}
       />
 
-      <div className="flex-1" />
+      <div className="flex-[0.6] md:flex-1" />
 
       {/* Main content */}
       <div className="relative z-10 text-center">
-        <h1
-          className={`
-            font-terminal text-3xl md:text-4xl lg:text-5xl tracking-wide
-            drop-shadow-[0_0_25px_hsl(var(--foreground)/0.5)]
-            transition-all duration-700
-            ${helloItalic ? 'italic' : 'not-italic'}
-          `}
-        >
-          {displayText}
+        <h1 className="font-terminal text-2xl md:text-4xl lg:text-5xl tracking-wide drop-shadow-[0_0_25px_hsl(var(--foreground)/0.5)]">
+          <span className={helloItalic ? 'italic' : 'not-italic'}>
+            {helloPart}
+          </span>
+          <span className="not-italic">
+            {restPart}
+          </span>
           <span
             className={`ml-1 inline-block font-terminal transition-opacity duration-75 ${
               showCursor ? 'opacity-100' : 'opacity-0'
@@ -117,7 +121,7 @@ const Hero = () => {
         {/* darivxe — slow fade-in + scramble */}
         <p
           className={`
-            mt-6 font-mono text-xs tracking-[0.2em] text-muted-foreground italic
+            mt-4 md:mt-6 font-mono text-xs tracking-[0.18em] text-muted-foreground italic
             transition-opacity duration-1000 ease-out
             ${showSubtext ? 'opacity-100' : 'opacity-0'}
             ${scrambleComplete ? 'animate-flicker' : ''}
@@ -127,7 +131,7 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className="flex-1" />
+      <div className="flex-[0.6] md:flex-1" />
 
       {/* Scroll indicator */}
       <div
@@ -149,4 +153,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

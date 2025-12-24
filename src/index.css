@@ -34,7 +34,7 @@
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 0 0% 18%;
     --sidebar-ring: 0 0% 100%;
-    
+
     /* Custom tokens */
     --font-display: 'Syne', sans-serif;
     --font-mono: 'Space Mono', monospace;
@@ -83,6 +83,7 @@
     font-family: var(--font-mono);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none; /* mobile bounce fix */
   }
 
   ::selection {
@@ -109,8 +110,9 @@
     );
   }
 
+  /* 🔧 MOBILE FIX HERE */
   .section-container {
-    @apply min-h-screen w-full px-6 py-24 md:px-12 lg:px-24;
+    @apply min-h-screen w-full px-5 py-16 md:px-12 md:py-24 lg:px-24;
   }
 
   .section-number {
@@ -159,7 +161,7 @@
     animation: bounce-slow 2s ease-in-out infinite;
   }
 
-  /* Subtle flicker animation for darivxe */
+  /* Subtle flicker animation */
   @keyframes flicker {
     0%, 100% { opacity: 1; }
     92% { opacity: 1; }
