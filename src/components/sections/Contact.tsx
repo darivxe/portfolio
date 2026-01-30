@@ -15,7 +15,7 @@ const socialLinks = [
   },
   {
     name: 'Email',
-    url: 'mailto:lekhanapriyamolleti28@gmail.com',
+    url: 'mailto:darivxeqz@gmail.com',
   },
 ];
 
