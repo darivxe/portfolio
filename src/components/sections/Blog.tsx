@@ -6,6 +6,14 @@ const blogPosts = [
     date: "Nov 21, 2025",
     readTime: "3 min",
     url: "https://medium.com/@darivxe/how-i-broke-a-realtime-editors-websocket-authentication-b3cf6dffd380"
+  },
+  {
+    id: 2,
+    category: "Learning",
+    title: "The Less I Know The Better",
+    date: "Dec 30, 2026",
+    readTime: "2 min",
+    url: "https://medium.com/@darivxe/the-less-i-know-the-better-124f7cb99d94"
   }
 ];
 
