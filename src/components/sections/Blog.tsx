@@ -11,7 +11,7 @@ const blogPosts = [
     id: 2,
     category: "Learning",
     title: "The Less I Know The Better",
-    date: "Dec 30, 2026",
+    date: "Jan 30, 2026",
     readTime: "2 min",
     url: "https://medium.com/@darivxe/the-less-i-know-the-better-124f7cb99d94"
   }
