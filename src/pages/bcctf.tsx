@@ -2,6 +2,7 @@ import CodeBlock from "@/components/ui/CodeBlock";
 import ChallengeTag from "@/components/ui/ChallengeTag";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { useEffect } from "react";
 
 <div className="mb-8">
   <Link
@@ -14,6 +15,10 @@ import { ArrowLeft } from "lucide-react";
 </div>
 
 const BCCTF = () => {
+
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
   return (
     <main className="bg-background text-foreground min-h-screen">
       <div className="container mx-auto px-6 py-24 max-w-4xl">
@@ -28,6 +33,7 @@ const BCCTF = () => {
             <span className="font-mono text-sm">Back</span>
           </Link>
         </div>
+
         {/* TITLE */}
         <h1 className="text-5xl font-mono font-bold">
           Bearcat CTF 2026
