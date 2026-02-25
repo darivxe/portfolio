@@ -13,12 +13,17 @@ const writeups = [
 
 const Writeups = () => {
   return (
-    <section id="writeups" className="py-32 border-t border-border">
+    <section
+      id="writeups"
+      className="py-32 border-t border-border scroll-mt-20"
+    >
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-end mb-16">
           <div>
             <span className="section-number">04</span>
-            <h2 className="text-4xl md:text-5xl font-mono font-bold mt-4">WRITEUPS</h2>
+            <h2 className="text-4xl md:text-5xl font-mono font-bold mt-4">
+              WRITEUPS
+            </h2>
           </div>
           <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
             CTF
