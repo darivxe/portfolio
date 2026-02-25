@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Moon, Sun, Menu, X } from "lucide-react";
 
 const navItems = [
-  { label: 'HOME', href: '#' },
-  { label: 'ABOUT', href: '#about' },
-  { label: 'SKILLS', href: '#skills' },
-  { label: 'PROJECTS', href: '#projects' },
-  { label: 'BLOG', href: '#blog' },
-  { label: 'CONTACT', href: '#contact' },
+  { label: "HOME", href: "#" },
+  { label: "ABOUT", href: "#about" },
+  { label: "SKILLS", href: "#skills" },
+  { label: "PROJECTS", href: "#projects" },
+  { label: "WRITEUPS", href: "#writeups" },
+  { label: "BLOG", href: "#blog" },
+  { label: "CONTACT", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -15,21 +16,22 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
       setIsDark(false);
-      document.documentElement.classList.add('light');
+      document.documentElement.classList.add("light");
     }
   }, []);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
+
     if (isDark) {
-      document.documentElement.classList.add('light');
-      localStorage.setItem('theme', 'light');
+      document.documentElement.classList.add("light");
+      localStorage.setItem("theme", "light");
     } else {
-      document.documentElement.classList.remove('light');
-      localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.remove("light");
+      localStorage.setItem("theme", "dark");
     }
   };
 
@@ -40,10 +42,10 @@ const Navbar = () => {
     e.preventDefault();
     setMenuOpen(false);
 
-    if (href === '#') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (href === "#") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -78,7 +80,11 @@ const Navbar = () => {
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Toggle theme"
             >
-              {isDark ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+              {isDark ? (
+                <Moon className="h-4 w-4" />
+              ) : (
+                <Sun className="h-4 w-4" />
+              )}
             </button>
 
             {/* Mobile menu button */}
@@ -87,7 +93,11 @@ const Navbar = () => {
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
             >
-              {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+              {menuOpen ? (
+                <X className="h-4 w-4" />
+              ) : (
+                <Menu className="h-4 w-4" />
+              )}
             </button>
           </div>
         </div>
@@ -95,10 +105,9 @@ const Navbar = () => {
 
       {/* Mobile dropdown */}
       <div
-        className={`
-          md:hidden overflow-hidden transition-all duration-300
-          ${menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
-        `}
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
         <div className="px-6 pb-4 pt-2 flex flex-col gap-4 bg-background/95 backdrop-blur-md">
           {navItems.map((item) => (
